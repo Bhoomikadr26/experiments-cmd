@@ -1,3 +1,113 @@
+
+1.
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CalculatorTest {
+
+    Calculator calc = new Calculator();
+
+    @Test
+    public void testAdd() {
+        assertEquals(5, calc.add(2,3));
+    }
+
+    @Test
+    public void testSubtract() {
+        assertEquals(2, calc.subtract(5,3));
+    }
+
+    @Test
+    public void testMultiply() {
+        assertEquals(6, calc.multiply(5,3));
+    }
+
+    @Test
+    public void testDivide() {
+        assertEquals(2, calc.divide(6,3));
+    }
+}
+
+package demo;
+public class Calculator {
+	public int add(int a, int b) {
+        return a + b;
+    }
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    public int divide(int a, int b) {
+        return a / b;
+    }
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        int a = 6;
+        int b = 3;
+        System.out.println("Addition: " + calc.add(a, b));
+        System.out.println("Subtraction: " + calc.subtract(a, b));
+        System.out.println("Multiplication: " + calc.multiply(a, b));
+        System.out.println("Division: " + calc.divide(a, b));
+    }
+}
+
+
+
+https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.10.1/junit-platform-console-standalone-1.10.1.jar
+
+javac -cp ".;lib\junit-platform-console-standalone-1.10.1.jar" -d bin Calculator.java CalculatorTest.java
+
+java -jar lib\junit-platform-console-standalone-1.10.1.jar --class-path bin --scan-class-path --details=tree
+
+2.maven
+
+3.git related
+
+4.pom 
+<!-- ADD THIS PART -->
+  <plugins>
+    <plugin>
+      <groupId>org.jacoco</groupId>
+      <artifactId>jacoco-maven-plugin</artifactId>
+      <version>0.8.11</version>
+
+      <executions>
+        <!-- Attach JaCoCo agent -->
+        <execution>
+          <goals>
+            <goal>prepare-agent</goal>
+          </goals>
+        </execution>
+
+        <!-- Generate coverage report -->
+        <execution>
+          <id>report</id>
+          <phase>test</phase>
+          <goals>
+            <goal>report</goal>
+          </goals>
+        </execution>
+      </executions>
+
+    </plugin>
+  </plugins>
+
+5.comments
+docker --version
+docker pull hello-world
+docker run hello-world
+docker pull caddy
+docker run caddy
+docker ps
+docker ps -a
+docker images
+docker rm "id"
+docker rmi
+
+
+
 exp 15
 
 docker --version
